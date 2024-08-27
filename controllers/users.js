@@ -105,6 +105,31 @@ export const UserController = {
         }
     },
 
+    async getUserLoggedIn(req, res) {
+        try {
+            const user_id = req.user.id
+
+            const result = await UserModel.readUserById(user_id);
+
+            if (result.length === 0) {
+                res.status(404).json({
+                    msg: 'User not found'
+                });
+            }
+
+            res.status(200).json({
+                msg: 'Ok',
+                body: result
+            });
+        } catch (error) {
+            console.log(error);
+            res.status(500).json({
+                msg: 'Error getting user logged in',
+                error: error.message
+            });
+        }
+    },
+
     async test(req, res) {
         res.status(200).json({
             msg: 'Test successful'

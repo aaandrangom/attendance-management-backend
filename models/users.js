@@ -65,5 +65,5 @@ export const UserModel = {
         });
 
         return result.rows[0];
-    }
+    },
 }
