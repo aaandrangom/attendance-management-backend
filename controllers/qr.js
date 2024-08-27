@@ -53,4 +53,26 @@ export const QRController = {
             });
         }
     },
+
+    async getQrToday(req, res) {
+        try {
+            const qrToday = await QrModel.getQrToday();
+            if (!qrToday) {
+                return res.status(400).json({
+                    msg: 'QR not found'
+                });
+            }
+
+            res.status(200).json({
+                msg: 'Ok',
+                body: qrToday
+            });
+        } catch (error) {
+            console.log(error);
+            res.status(500).json({
+                msg: 'Error getting qr today',
+                error: error.message
+            });
+        }
+    }
 };

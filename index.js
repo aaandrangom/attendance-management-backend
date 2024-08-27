@@ -18,6 +18,6 @@ app.use('/api/v1/users', userRoutes);
 app.use('/api/v1/qr', qrRoutes);
 app.use('/api/v1/attendance', attendanceRoutes)
 
-app.listen(PORT, server, () => {
+app.listen(PORT, () => {
     console.log(`Server running at ${PORT}`);
 });

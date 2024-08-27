@@ -45,5 +45,22 @@ export const QrModel = {
         });
 
         return result.rows[0];
+    },
+
+    async getQrToday() {
+        const query = `
+            SELECT
+                qr_id,
+                date,
+                token,
+                qr_code
+            FROM
+                daily_qr
+            WHERE
+                DATE(date) = DATE('now')
+        `;
+
+        const result = await turso.execute(query);
+        return result.rows[0];
     }
 }
