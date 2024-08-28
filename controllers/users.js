@@ -74,7 +74,7 @@ export const UserController = {
                 httpOnly: true,
                 secure: true,
                 sameSite: 'none',
-                domain: 'https://attendance-management-backend-9dam.onrender.com'
+                domain: 'attendance-management-backend-9dam.onrender.com'
             });
 
             res.status(200).json({
