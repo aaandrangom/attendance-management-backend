@@ -72,9 +72,9 @@ export const UserController = {
 
             res.cookie('access_token', token, {
                 httpOnly: true,
-                secure: process.env.NODE_ENV === 'production',
-                maxAge: 3600000,
-                sameSite: 'strict'
+                secure: true,
+                sameSite: 'none',
+                domain: 'https://attendance-management-backend-9dam.onrender.com'
             });
 
             res.status(200).json({
